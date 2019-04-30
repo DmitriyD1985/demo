@@ -7,24 +7,24 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.lang.Comparable;
 
-public class Main {
+public class Main 
+{
     public static void main(String[] args) throws IOException
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         int capacity = Integer.parseInt(reader.readLine());
         Truck truck = new Truck(capacity);
-
         ArrayList<Product> listProduct = new ArrayList<>();
         String str = reader.readLine();
         String[] subStr;
         String[] subStr2;
         subStr = str.split(" ");
-        String name;
-        int weigth;
-        int cost;
+
         for (int i = 0; i < subStr.length; i++)
         {
+            String name;
+            int weigth;
+            int cost;
             String inputProduct = subStr[i];
             subStr2 = inputProduct.split("/");
             name = subStr2[0];
@@ -55,7 +55,8 @@ public class Main {
         {
             for (int j = 0; j < i; j++)
             {
-                if (benefitIndex(list.get(j),truck)> benefitIndex(list.get(j+1),truck)) {
+                if (benefitIndex(list.get(j),truck)> benefitIndex(list.get(j+1),truck)) 
+                {
                     Product tmp = list.get(j);
                     list.set(j, list.get(j + 1));
                     list.set(j + 1, tmp);
@@ -77,7 +78,8 @@ public class Main {
         return value;
     }
 
-    public static double benefitIndex (Product product, Truck truck){
+    public static double benefitIndex (Product product, Truck truck)
+    {
         double index = (product.getWeigth()/product.getCost())*truck.getCapacity();
         return index;
     }
